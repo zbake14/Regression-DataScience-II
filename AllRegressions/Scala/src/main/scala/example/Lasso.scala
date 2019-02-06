@@ -1,4 +1,4 @@
-package example
+package regression
 import scalation.linalgebra._
 import scalation.analytics._
 import scalation.stat.StatVector.corr
