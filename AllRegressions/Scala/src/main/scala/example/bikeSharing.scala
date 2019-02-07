@@ -53,4 +53,7 @@ object BikeSharing
     val ox = VectorD.one (xy.dim1) +^: x
 
 
-} // ExampleAutoMPG object
+} // BikeSharing object
+
+
+
