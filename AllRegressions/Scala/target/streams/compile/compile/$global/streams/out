@@ -1,4 +1,0 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/mendkiakshay/data science 2/Regression-DataScience-II/AllRegressions/Scala/src/main/scala/example/MainRegression.scala:7:16: imported `Lasso' is permanently hidden by definition of object Lasso in package example[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport example.Lasso[0m
-[0m[[0m[33mwarn[0m] [0m[0m               ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
