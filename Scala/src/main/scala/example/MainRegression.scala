@@ -13,8 +13,8 @@ object MainRegression extends App
 {
 println("main is running")
 // val lass = new Lasso()
-println(ElectricalGrid.fname(3))
-println(ElectricalGrid.xy(1))
+println(ForestFires.xy.dim2)
+println(ForestFires.xy(1))
 //println(Naval.x)
 //println(Naval.y)
 //println(BikeSharing.x.selectCols(Array(0)).map(_.toInt))
