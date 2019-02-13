@@ -1,11 +1,12 @@
-package data
+package regression
 import scalation.linalgebra._
 import scalation.analytics._
 import scalation.stat.StatVector.corr
 import scalation.analytics.classifier._
 import scalation.util.{getFromURL_File, time}
+import data._
 
-object quadRegressAutoMpg extends App
+object quadRegression extends App
 {
 
 val auto = ExampleAutoMPG

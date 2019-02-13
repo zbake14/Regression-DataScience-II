@@ -30,10 +30,7 @@ object ComputerHardware
     xy = xy.slice(1,xy.dim1)
 
     val dummyVen = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(0))-1)) //col 0
-    // val dummyMnth = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(2))-1)) //col 2
-    // val dummyWkdy = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(4)))) //col 4
-    // val dummyWeat = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(6))-1)) //col 6
-
+    
     xy = dummyVen ++^ xy.selectCols(Array(1,2,3,4,5,6,7,8))
 
 /** the separation of the combine data matrix 'xy' into
