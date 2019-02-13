@@ -47,9 +47,9 @@ object ProteinTertiary
     //
     // println("ox is:")
     // println(ox)
-
-
-    println("oxy is:")
-    println(oxy)
+    // 
+    //
+    // println("oxy is:")
+    // println(oxy)
 
 } // Naval object

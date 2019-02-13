@@ -8,7 +8,7 @@ import scalation.util.banner
 
 import PredictorMat.{analyze, pullResponse_}
 
-object optical extends App
+object optical
 {
     /** the names of the predictor variables and the response variable at the end
      */
