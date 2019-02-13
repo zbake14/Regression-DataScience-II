@@ -42,11 +42,6 @@ rrgForestFires.train().eval()
 println("ForestFires:")
 println(rrgForestFires.report)
 
-val rrgNaval = new RidgeRegression(Naval.x- Naval.x.mean,Naval.y-Naval.y.mean)
-rrgNaval.train().eval()
-println("Naval:")
-println(rrgNaval.report)
-
 
 val rrgOptical = new RidgeRegression(optical.x- optical.x.mean,optical.y-optical.y.mean)
 rrgOptical.train().eval()

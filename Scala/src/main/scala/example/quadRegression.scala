@@ -52,10 +52,6 @@ qrgForestFires.train().eval()
 println("ForestFires:")
 println(qrgForestFires.report)
 
-val qrgNaval = new QuadRegression(Naval.x,Naval.y)
-qrgNaval.train().eval()
-println("Naval:")
-println(qrgNaval.report)
 
 
 val qrgoptical = new QuadRegression(optical.x,optical.y)

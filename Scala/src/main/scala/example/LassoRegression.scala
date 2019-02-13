@@ -42,11 +42,6 @@ lrgForestFires.train().eval()
 println("ForestFires:")
 println(lrgForestFires.report)
 
-val lrgNaval = new LassoRegression(Naval.ox,Naval.y)
-lrgNaval.train().eval()
-println("Naval:")
-println(lrgNaval.report)
-
 
 val lrgOptical = new LassoRegression(optical.ox,optical.y)
 lrgOptical.train().eval()
