@@ -9,7 +9,6 @@ import data._
 object LinRegress extends App
 {
 
-
 val qrg = new Regression(VectorD.one (ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x,ExampleAutoMPG.y)
 qrg.train().eval()
 println("Auto MPG:")
@@ -18,35 +17,28 @@ println(qrg.report)
 val qrgBike = new Regression(BikeSharing.ox, BikeSharing.y)
 qrgBike.train().eval()
 println("Bike:")
-println(qrgBike.summary)
+println(qrgBike.report)
 
 val qrgComputer = new Regression(ComputerHardware.ox,ComputerHardware.y)
 qrgComputer.train().eval()
 println("Computer:")
 println(qrgComputer.report)
 
-
 val qrgElectricGrid = new Regression(ElectricalGrid.ox,ElectricalGrid.y)
 qrgElectricGrid.train().eval()
 println("Electrical Grid:")
 println(qrgElectricGrid.report)
 
-
 val qrgEnergyEff = new Regression(EnergyEff.ox,EnergyEff.y)
 qrgEnergyEff.train().eval()
 println("Energy Eff:")
-println(qrgEnergyEff.summary)
+println(qrgEnergyEff.report)
 
 
 val qrgForestFires = new Regression(ForestFires.ox,ForestFires.y)
 qrgForestFires.train().eval()
 println("ForestFires:")
 println(qrgForestFires.report)
-
-val qrgNaval = new Regression(Naval.ox,Naval.y)
-qrgNaval.train().eval()
-println("Naval:")
-println(qrgNaval.summary)
 
 
 val qrgoptical = new Regression(optical.ox,optical.y)

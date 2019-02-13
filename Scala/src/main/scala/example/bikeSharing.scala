@@ -18,7 +18,6 @@ object BikeSharing
                        "weathersit_0", "weathersit_1",
                        "yr",  
                        "holiday",
-                       "workingday",
                         "temp",  "atemp", "hum", "windspeed", "cnt")
 
     /** the combined data matrix 'xy'
@@ -37,9 +36,9 @@ object BikeSharing
     val dummySeas = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(0))-1)) //col 0
     val dummyMnth = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(2))-1)) //col 2
     val dummyWkdy = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(4)))) //col 4
-    val dummyWeat = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(6))-1)) //col 6
+    val dummyWeat = new MatrixD(ANCOVA.dummyVars(xy.toInt.selectCols(Array(5))-1)) //col 6
 
-    xy = dummySeas ++^ dummyMnth ++^ dummyWkdy ++^ dummyWeat ++^ xy.selectCols(Array(1,3,5,7,8,9,10,11))
+    xy = dummySeas ++^ dummyMnth ++^ dummyWkdy ++^ dummyWeat ++^ xy.selectCols(Array(1,3,6,7,8,9,10))
 
 /** the separation of the combine data matrix 'xy' into
      *  a data/input matrix 'x' and a response/output vector 'y'

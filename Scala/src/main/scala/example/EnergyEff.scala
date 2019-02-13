@@ -12,7 +12,7 @@ object EnergyEff
 {
     /** the names of the predictor variables and the response variable at the end
      */
-    val fname = Array ("X1", "X2","X3",
+    val fname = Array ("X1","X3",
                        "X4","X5","X6","X7","X8","Y1")
      //Is VendorName categorical??? Do we even need it???
 
@@ -39,18 +39,4 @@ object EnergyEff
     val oxy = VectorD.one (xy.dim1) +^: xy
     val ox = VectorD.one (xy.dim1) +^: x
 
-    // println("x is:")
-    // println(x)
-    //
-    //
-    // println("y is:")
-    // println(y)
-    //
-    // println("ox is:")
-    // println(ox)
-    //
-    //
-    // println("oxy is:")
-    // println(oxy)
-
-} // BikeSharing object
+} // EnergyEff object
