@@ -1,1 +1,1 @@
-["data.ProteinTertiary","example.MainRegression"]
+["example.MainRegression","regression.LassoRegression","regression.LinRegress","regression.ResponseSurface","regression.RidgeRegression","regression.quadRegression"]

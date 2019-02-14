@@ -1,65 +1,107 @@
-[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/hello_2.12-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/hello_2.12-0.1.0-SNAPSHOT.jar ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/quadRegressAutoMpg.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/quadRegressAutoMpg.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ForestFires$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ForestFires$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ComputerHardware.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ComputerHardware.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/EnergyEff$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/EnergyEff$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/MainRegression$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/MainRegression$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ElectricalGrid$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ElectricalGrid$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ProteinTertiary$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ProteinTertiary$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/MainRegression$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/MainRegression$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/Naval.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/Naval.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	regression[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ProteinTertiary$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ProteinTertiary$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ElectricalGrid.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ElectricalGrid.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/MainRegression.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/MainRegression.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/BikeSharing.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/BikeSharing.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	regression/Lasso$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/Lasso$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/Hello$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Hello$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/BikeSharing$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/BikeSharing$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ForestFires.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ForestFires.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	example/Lasso.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Lasso.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ComputerHardware$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ComputerHardware$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/ProteinTertiary.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ProteinTertiary.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/Hello.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Lasso.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	example/Lasso$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Lasso$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/quadRegressAutoMpg$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/quadRegressAutoMpg$delayedInit$body.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/Naval$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/Naval$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Lasso$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/MainRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/MainRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ConcreteData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ConcreteData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/LassoRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/LassoRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/MainRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/MainRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/quadRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/quadRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/quadRegressAutoMpg.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/quadRegressAutoMpg.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ProteinTertiary$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ProteinTertiary$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/MainRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/MainRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/optical$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/optical$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/BikeSharing.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/BikeSharing.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/LassoRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/LassoRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ElectricalGrid$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ElectricalGrid$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/optical.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/optical.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/Lasso$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/Lasso$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/LinRegress$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/LinRegress$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/WineQuality.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/WineQuality.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/RidgeRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/RidgeRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ConcreteData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ConcreteData.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	example/Hello$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Hello$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	example/quadRegressAutoMpg$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/quadRegressAutoMpg$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	data/EnergyEff.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/EnergyEff.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Hello$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/Naval$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/Naval$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression[0m
 [0m[[0m[0mdebug[0m] [0m[0m	regression/Lasso.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  /Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/Lasso.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/Lasso.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/ResponseSurface$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/ResponseSurface$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/Hello$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/Hello$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ForestFires.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ForestFires.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/BikeSharing$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/BikeSharing$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/EnergyEff.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/EnergyEff.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/ResponseSurface$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/ResponseSurface$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/RidgeRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/RidgeRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ElectricalGrid.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ElectricalGrid.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/WineQuality$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/WineQuality$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ComputerHardware$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ComputerHardware$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/quadRegressAutoMpg$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/quadRegressAutoMpg$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/LinRegress.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/LinRegress.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/RidgeRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/RidgeRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ProteinTertiary$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ProteinTertiary$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ForestFires$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ForestFires$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/ResponseSurface.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/ResponseSurface.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/quadRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/quadRegression$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/LinRegress$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/LinRegress$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	example/quadRegressAutoMpg$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/example/quadRegressAutoMpg$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/quadRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/quadRegression.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/EnergyEff$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/EnergyEff$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	regression/LassoRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/regression/LassoRegression$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ComputerHardware.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ComputerHardware.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/ProteinTertiary.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/ProteinTertiary.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	data/Naval.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/target/scala-2.12/classes/data/Naval.class[0m
 [0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
