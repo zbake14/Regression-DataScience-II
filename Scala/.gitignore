@@ -1,3 +1,7 @@
 # Ignoring all files and subfolders of Proejct and Target from root
-project/*
-target/*
+project/
+target/
+*.properties
+*.xml
+*.jar
+*.zip
