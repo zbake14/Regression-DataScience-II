@@ -1,7 +1,3 @@
-# Ignoring all files and subfolders of Proejct and Target from root
-project/
-target/
-*.properties
-*.xml
-*.jar
-*.zip
+#Ignoring following directories
+Scala/project/**
+Scala/target/**

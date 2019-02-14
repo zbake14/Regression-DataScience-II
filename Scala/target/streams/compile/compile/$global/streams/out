@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/src/main/scala/example/ResponseSurface.scala:16:17: not found: type QuadReResponseSurfacegression[0m
-[0m[[0m[31merror[0m] [0m[0m	val rsrg = new QuadReResponseSurfacegression(autoX,autoY)[0m
-[0m[[0m[31merror[0m] [0m[0m	               ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/src/main/scala/example/ResponseSurface.scala:32:2: not found: value lrgElectricGrid[0m
+[0m[[0m[31merror[0m] [0m[0m	lrgElectricGrid.train().eval()[0m
+[0m[[0m[31merror[0m] [0m[0m	^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/omkaracharya/Documents/Courses/Data Science 2/Project_1/Regression-DataScience-II/Scala/src/main/scala/example/ResponseSurface.scala:34:10: not found: value lrgElectricGrid[0m
+[0m[[0m[31merror[0m] [0m[0m	println(lrgElectricGrid.report)[0m
+[0m[[0m[31merror[0m] [0m[0m	        ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
