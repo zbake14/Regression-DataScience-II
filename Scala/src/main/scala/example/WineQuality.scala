@@ -16,7 +16,7 @@ object WineQuality
                        "residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","pH","sulphates","alcohol","quality")
      //Is VendorName categorical??? Do we even need it???
 
-    val fname1 = System.getProperty("user.dir")+"/RawData/WineQuality.csv"
+    val fname1 = System.getProperty("user.dir")+"/RawData/winequality.csv"
     var xy = MatrixD(fname1)
 
     /** index for the data points (instances)
