@@ -104,7 +104,7 @@ object RidgeRegression extends App {
     } // for
 
     println("max r2 is:")
-    println(r2A.max())
+    println(r2.max())
     println("max r2A is:")
     println(r2A.max())
     println("n* for adj r2: "+r2A.argmax())
