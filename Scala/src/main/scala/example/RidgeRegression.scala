@@ -66,15 +66,15 @@ object RidgeRegression extends App {
   println("ProteinTertiary:")
   println(rrgProteinTertiary.report)
 
-  val rrgWineQuality = new RidgeRegression(WineQuality.x - WineQuality.x.mean,
-                                           WineQuality.y - WineQuality.y.mean)
+  val rrgWineQuality = new RidgeRegression(WineQuality.x,
+                                           WineQuality.y)
   rrgWineQuality.train().eval()
   println("WineQuality:")
   println(rrgWineQuality.report)
-   */
+*/
 
-  ForwardSelection(WineQuality.x - WineQuality.x.mean,
-                 WineQuality.y - WineQuality.y.mean)
+  ForwardSelection(WineQuality.x-WineQuality.x.mean,
+                 WineQuality.y-WineQuality.y.mean)
 
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
@@ -90,11 +90,12 @@ object RidgeRegression extends App {
     var cvR = new VectorD(x.dim2)
     var flag = true
     var tcol = 0
+
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
         fcols += x_j
-        cvR(l) = crossVal((x: MatriD, y: VectoD) => new RidgeRegression(argX.selectCols(fcols.toArray),argY), argX.selectCols(fcols.toArray), argY)
+        cvR(l) = crossVal((x: MatriD, y: VectoD) => new RidgeRegression(x,y), x.selectCols(fcols.toArray), argY)
         r2(l) = fit_j(0)
         r2A(l) = fit_j(7)
         tcol = tcol + 1
@@ -115,7 +116,6 @@ object RidgeRegression extends App {
     all3.update(0,r2.slice(0, tcol))
     all3.update(1,r2A.slice(0, tcol))
     all3.update(2,cvR.slice(0, tcol))
-    println(all3)
     new PlotM(t,
              all3,
              Array("R2","R2 Adj", "CV R2"),
@@ -130,7 +130,6 @@ object RidgeRegression extends App {
     val stats = Array.ofDim[Statistic](fLabel.length)
     for (i <- stats.indices) stats(i) = new Statistic(fLabel(i))*/
     val indices = PermutedVecI (VectorI.range (0, argX.dim1), 0).igen.split(k) // k groups of indices
-
     for (idx <- indices) {
       val x_te = argX(idx) // test data matrix
       val y_te = argY(idx) // test response vector
@@ -139,6 +138,7 @@ object RidgeRegression extends App {
 
       val model = algor(x_tr, y_tr) // construct next model using training dataset
       model.train() // train model on the training dataset
+
       val e = y_te - x_te*model.parameter
       val sse = e dot e
       val sst = (y_te dot y_te) - y_te.sum~^2 / y_te.dim
