@@ -1,4 +1,4 @@
-
+setwd("/Users/zachbaker/Documents/Senior Year/Spring Semester/DS2/Regression-DataScience-II/R/")
 ## Reading in the datasets
 autoMPG = read.csv(file = "RawData/AutoMPG.csv")
 
@@ -34,4 +34,4 @@ for(i in vecData){
   print(i[1,])
 }
 
-
+summary(lm(quality~., data=wine))
