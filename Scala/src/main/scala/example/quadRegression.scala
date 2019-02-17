@@ -13,19 +13,19 @@ import scalation.random.CDF.studentTCDF
 import scalation.random._
 import scalation.math.double_exp
 
-object quadRegression extends App
+object quadRegression
 {
 
 ForwardSelection(WineQuality.x,WineQuality.y)
-//ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //run time error solved
-// ForwardSelection(EnergyEff.x,EnergyEff.y) //runtime error solved
-// ForwardSelection(ForestFires.x,ForestFires.y)
-// ForwardSelection(ElectricalGrid.x,ElectricalGrid.y)
-// ForwardSelection(ComputerHardware.x,ComputerHardware.y) //runtime error solved
-//ForwardSelection(BikeSharing.x,BikeSharing.y) //runtime solved
-//ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y)
-//ForwardSelection(optical.x,optical.y) //runtime solved
-// ForwardSelection(ConcreteData.x,ConcreteData.y)
+ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //run time error solved
+ForwardSelection(EnergyEff.x,EnergyEff.y) //runtime error solved
+ForwardSelection(ForestFires.x,ForestFires.y)
+ForwardSelection(ElectricalGrid.x,ElectricalGrid.y)
+ForwardSelection(ComputerHardware.x,ComputerHardware.y) //runtime error solved
+ForwardSelection(BikeSharing.x,BikeSharing.y) //runtime solved
+ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y)
+ForwardSelection(optical.x,optical.y) //runtime solved
+ForwardSelection(ConcreteData.x,ConcreteData.y)
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 

@@ -15,62 +15,17 @@ import scalation.math.double_exp
 
 object LinRegress extends App
 {
-/*
- val qrg = new Regression(VectorD.one (ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x,ExampleAutoMPG.y)
- qrg.train().eval()
- println("Auto MPG:")
- println(qrg.report)
 
- val qrgBike = new Regression(BikeSharing.ox, BikeSharing.y)
- qrgBike.train().eval()
- println("Bike:")
- println(qrgBike.report)
-
- val qrgComputer = new Regression(ComputerHardware.ox,ComputerHardware.y)
- qrgComputer.train().eval()
- println("Computer:")
- println(qrgComputer.report)
-
- val qrgElectricGrid = new Regression(ElectricalGrid.ox,ElectricalGrid.y)
- qrgElectricGrid.train().eval()
- println("Electrical Grid:")
- println(qrgElectricGrid.report)
-
- val qrgEnergyEff = new Regression(EnergyEff.ox,EnergyEff.y)
- qrgEnergyEff.train().eval()
- println("Energy Eff:")
- println(qrgEnergyEff.report)
-
-
- val qrgForestFires = new Regression(ForestFires.ox,ForestFires.y)
- qrgForestFires.train().eval()
- println("ForestFires:")
- println(qrgForestFires.report)
-
-
- val qrgoptical = new Regression(optical.ox,optical.y)
- qrgoptical.train().eval()
- println("optical:")
- println(qrgoptical.report)
-
- val qrgProteinTertiary = new Regression(ProteinTertiary.ox,ProteinTertiary.y)
- qrgProteinTertiary.train().eval()
- println("ProteinTertiary:")
- println(qrgProteinTertiary.report)
-
- val qrgWineQuality = new Regression(WineQuality.ox,WineQuality.y)
- qrgWineQuality.train().eval()
- println("WineQuality:")
- println(qrgWineQuality.report)
-
-val qrgCon= new Regression(ConcreteData.ox,ConcreteData.y)
-qrgCon.train().eval()
-println("Concrete_Data:")
-println(qrgCon.report)
-*/
-ForwardSelection(WineQuality.ox,
-                 WineQuality.y)
-
+  ForwardSelection(WineQuality.x,WineQuality.y)
+  ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //run time error solved
+  ForwardSelection(EnergyEff.x,EnergyEff.y) //runtime error solved
+  ForwardSelection(ForestFires.x,ForestFires.y)
+  ForwardSelection(ElectricalGrid.x,ElectricalGrid.y)
+  ForwardSelection(ComputerHardware.x,ComputerHardware.y) //runtime error solved
+  ForwardSelection(BikeSharing.x,BikeSharing.y) //runtime solved
+  ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y)
+  ForwardSelection(optical.x,optical.y) //runtime solved
+  ForwardSelection(ConcreteData.x,ConcreteData.y)
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 
@@ -89,12 +44,18 @@ ForwardSelection(WineQuality.ox,
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
-        fcols += x_j
-        cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), x.selectCols(fcols.toArray), argY)
-        r2(l) = fit_j(0)
-        r2A(l) = fit_j(7)
-        tcol = tcol + 1
-        if (fit_j(7) < 0) flag = false
+
+        if (fit_j(7) < 0 || fit_j(0)<0) flag = false
+
+        if(flag)
+        {
+          fcols += x_j
+          cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
+          r2(l) = fit_j(0)
+          r2A(l) = fit_j(7)
+          tcol = tcol + 1
+        }
+
       }
     } // for
 
