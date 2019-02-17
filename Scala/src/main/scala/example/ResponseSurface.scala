@@ -20,11 +20,11 @@ object ResponseSurface extends App
 //ForwardSelection(EnergyEff.x,EnergyEff.y) //Working
 //ForwardSelection(ForestFires.x,ForestFires.y) //Check this again
 //ForwardSelection(ElectricalGrid.x,ElectricalGrid.y) //Working
-ForwardSelection(ComputerHardware.x.selectCols(Array(29,30,31,32,33,34,35)),ComputerHardware.y) //Runtime error not enough rows
+ForwardSelection(ComputerHardware.x.selectCols(Array(29,30,31,32,33,34,35)),ComputerHardware.y) //Working
 //ForwardSelection(BikeSharing.x,BikeSharing.y) //Check this again
 //ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y) //Working
 //ForwardSelection(optical.x,optical.y) //Working
-//ForwardSelection(ConcreteData.x,ConcreteData.y) //
+//ForwardSelection(ConcreteData.x,ConcreteData.y) //Working
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 
