@@ -15,68 +15,17 @@ import scalation.math.double_exp
 
 object quadRegression extends App
 {
-// val auto = ExampleAutoMPG
-// val autoX = auto.x
-// val autoY = auto.y
-//
-//
-// val qrg = new QuadRegression(autoX,autoY)
-// qrg.train().eval()
-// println("Auto MPG:")
-// println(qrg.report)
-//
-//
-// val bike = BikeSharing
-// val bikeX = bike.x
-// val bikeY = bike.y
-//
-// val qrgBike = new QuadRegression(bikeX,bikeY)
-// qrgBike.train().eval()
-// println("Bike:")
-// println(qrgBike.report)
-//
-// val qrgComputer = new QuadRegression(ComputerHardware.x,ComputerHardware.y)
-// qrgComputer.train().eval()
-// println("Computer:")
-// println(qrgComputer.report)
-//
-//
-// val qrgElectricGrid = new QuadRegression(ElectricalGrid.x,ElectricalGrid.y)
-// qrgElectricGrid.train().eval()
-// println("Electrical Grid:")
-// println(qrgElectricGrid.report)
-//
-//
-// val qrgEnergyEff = new QuadRegression(EnergyEff.x,EnergyEff.y)
-// qrgEnergyEff.train().eval()
-// println("Energy Eff:")
-// println(qrgEnergyEff.report)
-//
-//
-// val qrgForestFires = new QuadRegression(ForestFires.x,ForestFires.y)
-// qrgForestFires.train().eval()
-// println("ForestFires:")
-// println(qrgForestFires.report)
-//
-//
-//
-// val qrgoptical = new QuadRegression(optical.x,optical.y)
-// qrgoptical.train().eval()
-// println("optical:")
-// println(qrgoptical.report)
-//
-// val qrgProteinTertiary = new QuadRegression(ProteinTertiary.x,ProteinTertiary.y)
-// qrgProteinTertiary.train().eval()
-// println("ProteinTertiary:")
-// println(qrgProteinTertiary.report)
-//
-// val qrgWineQuality = new QuadRegression(WineQuality.x,WineQuality.y)
-// qrgWineQuality.train().eval()
-// println("WineQuality:")
-// println(qrgWineQuality.report)
-ForwardSelection(WineQuality.x,
-                 WineQuality.y)
 
+ForwardSelection(WineQuality.x,WineQuality.y)
+//ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //run time error solved
+// ForwardSelection(EnergyEff.x,EnergyEff.y) //runtime error solved
+// ForwardSelection(ForestFires.x,ForestFires.y)
+// ForwardSelection(ElectricalGrid.x,ElectricalGrid.y)
+// ForwardSelection(ComputerHardware.x,ComputerHardware.y) //runtime error solved
+//ForwardSelection(BikeSharing.x,BikeSharing.y) //runtime solved
+//ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y)
+//ForwardSelection(optical.x,optical.y) //runtime solved
+// ForwardSelection(ConcreteData.x,ConcreteData.y)
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 
@@ -95,12 +44,18 @@ ForwardSelection(WineQuality.x,
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
-        fcols += x_j
-        cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
-        r2(l) = fit_j(0)
-        r2A(l) = fit_j(7)
-        tcol = tcol + 1
-        if (fit_j(7) < 0) flag = false
+
+        if (fit_j(7) < 0 || fit_j(0)<0) flag = false
+
+        if(flag)
+        {
+          fcols += x_j
+          cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
+          r2(l) = fit_j(0)
+          r2A(l) = fit_j(7)
+          tcol = tcol + 1
+        }
+
       }
     } // for
 
@@ -149,12 +104,6 @@ ForwardSelection(WineQuality.x,
       val ssr = sst-sse
       val rSq = ssr/sst
       sumR = sumR + rSq
-      /*model.eval(x_te, y_te) // evaluate model on the test dataset
-      val qof = model.fit // get quality of fit (qof) measures
-      println(model.report)
-      if (DEBUG) println(s"crossValidate: qof = $qof")
-      for (q <- qof.range) stats(q).tally(qof(q)) // tally these qof measures
-      */
     } // for
 
 /*
