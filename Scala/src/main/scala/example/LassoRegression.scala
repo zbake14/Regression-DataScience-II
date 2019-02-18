@@ -15,18 +15,55 @@ import scalation.math.double_exp
 
 object LassoRegression extends App
 {
-  ForwardSelection(WineQuality.ox,WineQuality.y) //Working
-  ForwardSelection(ProteinTertiary.ox,ProteinTertiary.y) //Working
-  ForwardSelection(EnergyEff.ox,EnergyEff.y) //Working
-  ForwardSelection(ForestFires.ox,ForestFires.y) //Check this again
-  ForwardSelection(ElectricalGrid.ox,ElectricalGrid.y) //Working
-  ForwardSelection(ComputerHardware.ox,ComputerHardware.y) //Working
-  ForwardSelection(BikeSharing.ox,BikeSharing.y) //Check this again
-  ForwardSelection(VectorD.one (ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x, ExampleAutoMPG.y) //Working
-  ForwardSelection(optical.ox,optical.y) //Working
-  ForwardSelection(ConcreteData.ox,ConcreteData.y) //Working
+  println("WineQuality")
+  ForwardSelection(WineQuality.ox,WineQuality.y, "WineQuality")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
 
-  def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
+  println("ProteinTertiary")
+  ForwardSelection(ProteinTertiary.ox,ProteinTertiary.y,"ProteinTertiary") //run time error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("EnergyEff")
+  ForwardSelection(EnergyEff.ox,EnergyEff.y,"EnergyEff") //runtime error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ForestFires")
+  ForwardSelection(ForestFires.ox,ForestFires.y, "ForestFires")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ElectricalGrid")
+  ForwardSelection(ElectricalGrid.ox,ElectricalGrid.y,"ElectricalGrid")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ComputerHardware")
+  ForwardSelection(ComputerHardware.ox,ComputerHardware.y,"ComputerHardware") //runtime error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("BikeSharing")
+  ForwardSelection(BikeSharing.ox,BikeSharing.y,"BikeSharing") //runtime solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ExampleAutoMPG")
+  ForwardSelection(VectorD.one(ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x,ExampleAutoMPG.y,"ExampleAutoMPG")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("Optical")
+  ForwardSelection(optical.ox,optical.y,"Optical") //runtime solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ConcreteData")
+  ForwardSelection(ConcreteData.ox,ConcreteData.y,"ConcreteData")
+
+  def ForwardSelection(argX: MatrixD, argY: VectorD, datasetName:String): Unit = {
 
     val rrg = new LassoRegression(argX, argY)
     rrg.train().eval()
@@ -77,7 +114,7 @@ object LassoRegression extends App
     new PlotM(t,
              all3,
              Array("R2","R2 Adj", "CV R2"),
-             "R square vs R bar square", true)
+             datasetName+" R square vs R bar square", true)
   }
 
   def crossVal(algor: (MatriD, VectoD) => PredictorMat,

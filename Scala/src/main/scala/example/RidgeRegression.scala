@@ -14,18 +14,58 @@ import scalation.random._
 import scalation.math.double_exp
 
 object RidgeRegression extends App {
-	ForwardSelection(WineQuality.x - WineQuality.x.mean, WineQuality.y - WineQuality.y.mean) //
-	ForwardSelection(ProteinTertiary.x - ProteinTertiary.x.mean, ProteinTertiary.y - ProteinTertiary.y.mean) //Working
-	ForwardSelection(EnergyEff.x - EnergyEff.x.mean, EnergyEff.y - EnergyEff.y.mean) //Working
-	ForwardSelection(ForestFires.x - ForestFires.x.mean, ForestFires.y - ForestFires.y.mean) //Check this again
-	ForwardSelection(ElectricalGrid.x - ElectricalGrid.x.mean, ElectricalGrid.y - ElectricalGrid.y.mean) //Working
-	ForwardSelection(ComputerHardware.x - ComputerHardware.x.mean, ComputerHardware.y - ComputerHardware.y.mean) //Working
-	ForwardSelection(BikeSharing.x - BikeSharing.x.mean, BikeSharing.y - BikeSharing.y.mean) //Check this again
-	ForwardSelection(ExampleAutoMPG.x - ExampleAutoMPG.x.mean, ExampleAutoMPG.y - ExampleAutoMPG.y.mean) //Working
-	ForwardSelection(optical.x - optical.x.mean, optical.y - optical.y.mean) //Working
-	ForwardSelection(ConcreteData.x - ConcreteData.x.mean, ConcreteData.y - ConcreteData.y.mean) //Working
 
-  def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
+  println("WineQuality")
+	ForwardSelection(WineQuality.x - WineQuality.x.mean, WineQuality.y - WineQuality.y.mean,"WineQuality") //
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ProteinTertiary")
+	ForwardSelection(ProteinTertiary.x - ProteinTertiary.x.mean, ProteinTertiary.y - ProteinTertiary.y.mean, "ProteinTertiary") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+	println("EnergyEff")
+	ForwardSelection(EnergyEff.x - EnergyEff.x.mean, EnergyEff.y - EnergyEff.y.mean,"EnergyEff") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ForestFires")
+	ForwardSelection(ForestFires.x - ForestFires.x.mean, ForestFires.y - ForestFires.y.mean,"ForestFires") //Check this again
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ComputerHardware")
+	ForwardSelection(ComputerHardware.x - ComputerHardware.x.mean, ComputerHardware.y - ComputerHardware.y.mean, "ComputerHardware") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ElectricalGrid")
+	ForwardSelection(ElectricalGrid.x - ElectricalGrid.x.mean, ElectricalGrid.y - ElectricalGrid.y.mean,"ElectricalGrid") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("BikeSharing")
+	ForwardSelection(BikeSharing.x - BikeSharing.x.mean, BikeSharing.y - BikeSharing.y.mean,"BikeSharing") //Check this again
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ExampleAutoMPG")
+	ForwardSelection(ExampleAutoMPG.x - ExampleAutoMPG.x.mean, ExampleAutoMPG.y - ExampleAutoMPG.y.mean,"ExampleAutoMPG") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("optical")
+	ForwardSelection(optical.x - optical.x.mean, optical.y - optical.y.mean,"optical") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ConcreteData")
+	ForwardSelection(ConcreteData.x - ConcreteData.x.mean, ConcreteData.y - ConcreteData.y.mean,"ConcreteData") //Working
+	println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  def ForwardSelection(argX: MatrixD, argY: VectorD, datasetName:String): Unit = {
 
     val rrg = new RidgeRegression(argX, argY)
     rrg.train().eval()
@@ -65,9 +105,9 @@ object RidgeRegression extends App {
     println("max cv R2 is:")
     println(cvR.max())
     println("n* for cv r2: " +(cvR.argmax()+1))
-    println(r2)
-    println(r2A)
-    println(cvR)
+    // println(r2)
+    // println(r2A)
+    // println(cvR)
     val t = VectorD.range(0, tcol)
     val all3 = new MatrixD(3,tcol)
     all3.update(0,r2.slice(0, tcol))
@@ -76,7 +116,7 @@ object RidgeRegression extends App {
     new PlotM(t,
              all3,
              Array("R2","R2 Adj", "CV R2"),
-             "R square vs R bar square", true)
+             datasetName+" R square vs R bar square", true)
   }
 
   def crossVal(algor: (MatriD, VectoD) => PredictorMat,
