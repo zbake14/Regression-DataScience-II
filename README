@@ -1,0 +1,106 @@
+README 
+CSCI 4/6360
+Omkar Acharya(oma52562@uga.edu), Zach Baker(zeb66481@uga.edu),
+Akshay Mendki(akshay.mendki@uga.edu)
+
+In this submission includes an excel file with the maximum r-squared, 
+adjusted r-squared, and cross-validated r-squared, as well as each n* 
+for each dataset and regression.
+
+PowerPoint slides that summarize all of the results are include as well.
+
+
+SCALATION
+The right folder to run the scalation code is 
+
+/Project1/Scala
+
+To compile the code, first start an sbt server with the following command:
+
+	$ sbt
+
+Then to actaully compile the code run this command:
+
+	sbt:hello> compile
+
+Now to run the code, use this command:
+
+	sbt:hello> run
+
+Now the following text should appear:
+
+	[warn] Multiple main classes detected.  Run 'show discoveredMainClasses' to see the list
+
+	Multiple main classes detected, select one to run:
+
+	[1] regression.LassoRegression
+	[2] regression.LinRegress
+	[3] regression.ResponseSurface
+	[4] regression.RidgeRegression
+	[5] regression.quadRegression
+	[info] Packaging ...
+	[info] Done packaging.
+	Enter number: 
+
+The number you enter will correspond to which regression will run,
+so if you wanted to run RidgeRegression, you would type '4' and then 
+hit enter.
+
+Each of these files execute in the same way, they run the regression 
+specified for each of the 10 datasets we selected. 
+The datasets and links are below:
+1. Auto MPG: https://archive.ics.uci.edu/ml/datasets/Auto+MPG 
+2. Bike Sharing: https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset
+3. Computer Hardware: https://archive.ics.uci.edu/ml/datasets/Computer+Hardware
+4. Concrete Compressive: https://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength
+5. Electrical Grid Stability: https://archive.ics.uci.edu/ml/datasets/Electrical+Grid+Stability+Simulated+Data+
+6. Energy Effeciency: https://archive.ics.uci.edu/ml/datasets/Energy+efficiency
+7. Forest Fires: https://archive.ics.uci.edu/ml/datasets/Forest+Fires
+8. Optical Interconnection: https://archive.ics.uci.edu/ml/datasets/Optical+Interconnection+Network+
+9. Protein Tertiary: https://archive.ics.uci.edu/ml/datasets/Physicochemical+Properties+of+Protein+Tertiary+Structure
+10. Wine Quality: https://archive.ics.uci.edu/ml/datasets/Wine+Quality
+
+We read each of these datasets in as a csv file, and the code is in the 
+corresponding scala file. For instance the Bike Sharing dataset is read 
+in the BikeSharing.scala file and all the preprocessing is done there.
+
+The regression files will each output a lot of text which is the
+forward selection method. It will also print out the max 
+r-squared, adj r-squared, and cross-validated r-squared, however,
+it may be lost in all the forwardSel output.
+Each dataset will also produce a plot of each of the 3 metrics vs. how 
+many variables are included in the model.
+
+So in summary each regression file runs 10 regressions for each of 
+the 10 datasets and produces 10 plots. 
+
+
+Notes:
+Response Surface will take a while to run as the forward selection is 
+running through (n+2)*(n+1)/2 columns.
+
+In order to run the R code:
+1. Open the MainRegression.R file
+2. Change line 1 to whatever full pathname you have the Project1/R 
+	folder in
+3. Ensure that you have all the packages seen in lines 2-7
+4. Run the code in its entirety.
+
+The code will take approximately 5 minutes to run with just Linear
+Regression, Ridge and Lasso Regression. 
+Uncomment and run Quad and Response Surface at your own risk
+It may crash the R session and you will have to start over
+The code will not run with any dataset with more than 50 variables,
+so it will most likely not work with Quad and Repsonse Surface, 
+however all the functionality is there.
+
+If you have any questions at all regarding anyting about the project,
+feel free to email the 3 of us.
+
+
+
+
+
+
+
+
