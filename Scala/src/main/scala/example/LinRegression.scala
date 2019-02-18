@@ -16,18 +16,55 @@ import scalation.math.double_exp
 object LinRegress extends App
 {
 
-  ForwardSelection(WineQuality.x,WineQuality.y)
-  ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //run time error solved
-  ForwardSelection(EnergyEff.x,EnergyEff.y) //runtime error solved
-  ForwardSelection(ForestFires.x,ForestFires.y)
-  ForwardSelection(ElectricalGrid.x,ElectricalGrid.y)
-  ForwardSelection(ComputerHardware.x,ComputerHardware.y) //runtime error solved
-  ForwardSelection(BikeSharing.x,BikeSharing.y) //runtime solved
-  ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y)
-  ForwardSelection(optical.x,optical.y) //runtime solved
-  ForwardSelection(ConcreteData.x,ConcreteData.y)
+  println("WineQuality")
+  ForwardSelection(WineQuality.ox,WineQuality.y, "WineQuality")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
 
-  def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
+  println("ProteinTertiary")
+  ForwardSelection(ProteinTertiary.ox,ProteinTertiary.y,"ProteinTertiary") //run time error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("EnergyEff")
+  ForwardSelection(EnergyEff.ox,EnergyEff.y,"EnergyEff") //runtime error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ForestFires")
+  ForwardSelection(ForestFires.ox,ForestFires.y, "ForestFires")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ElectricalGrid")
+  ForwardSelection(ElectricalGrid.ox,ElectricalGrid.y,"ElectricalGrid")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ComputerHardware")
+  ForwardSelection(ComputerHardware.ox,ComputerHardware.y,"ComputerHardware") //runtime error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("BikeSharing")
+  ForwardSelection(BikeSharing.ox,BikeSharing.y,"BikeSharing") //runtime solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ExampleAutoMPG")
+  ForwardSelection(VectorD.one(ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x,ExampleAutoMPG.y,"ExampleAutoMPG")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("Optical")
+  ForwardSelection(optical.ox,optical.y,"Optical") //runtime solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ConcreteData")
+  ForwardSelection(ConcreteData.ox,ConcreteData.y,"ConcreteData")
+
+  def ForwardSelection(argX: MatrixD, argY: VectorD, datasetName:String): Unit = {
 
     val rrg = new Regression(argX, argY)
     rrg.train().eval()
@@ -41,11 +78,13 @@ object LinRegress extends App
     var flag = true
     var tcol = 0
 
+
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
 
         if (fit_j(7) < 0 || fit_j(0)<0) flag = false
+        if(l<3) flag = true
 
         if(flag)
         {
@@ -67,10 +106,8 @@ object LinRegress extends App
     println("max cv R2 is:")
     println(cvR.max())
     println("n* for cv r2: " +(cvR.argmax()+1))
-    println(r2)
-    println(r2A)
-    println(cvR)
-    val t = VectorD.range(0, tcol)
+
+    val t = VectorD.range(1, tcol)
     val all3 = new MatrixD(3,tcol)
     all3.update(0,r2.slice(0, tcol))
     all3.update(1,r2A.slice(0, tcol))
@@ -78,7 +115,7 @@ object LinRegress extends App
     new PlotM(t,
              all3,
              Array("R2","R2 Adj", "CV R2"),
-             "R square vs R bar square", true)
+             datasetName+" R square vs R bar square", true)
   }
 
   def crossVal(algor: (MatriD, VectoD) => PredictorMat,
