@@ -15,50 +15,16 @@ import scalation.math.double_exp
 
 object ResponseSurface extends App
 {
-	val auto = ExampleAutoMPG
-	val autoX = auto.x
-	val autoY = auto.y
-
-
-	// val rs = new ResponseSurface(autoX,autoY)
-	// rs.train().eval()
-	// println("Auto MPG:")
-	// println(rs.report)
-
-	// val lrgBike = new LassoRegression(BikeSharing.ox/*.selectCols(Array(1,20,21,22,23,24,25,26,27,28))*/, BikeSharing.y)
-	// lrgBike.train().eval()
-	// println("Bike:")
-	// println(lrgBike.report)
-
-	// val lrgComputer = new LassoRegression(ComputerHardware.ox,ComputerHardware.y)
-	// lrgComputer.train().eval()
-	// println("Computer:")
-	// println(lrgComputer.report)
-
-	// val rsElectricGrid = new LassoRegression(ElectricalGrid.ox,ElectricalGrid.y)
-	// rsElectricGrid.train().eval()
-	// println("Electrical Grid:")
-	// println(rsElectricGrid.report)
-
-	// val rsEnergyEff = new LassoRegression(EnergyEff.ox,EnergyEff.y)
-	// rsEnergyEff.train().eval()
-	// println("Energy Eff:")
-	// println(rsEnergyEff.report)
-
-	// val rsForestFires = new LassoRegression(ForestFires.ox,ForestFires.y)
-	// rsForestFires.train().eval()
-	// println("ForestFires:")
-	// println(rsForestFires.report)
-
-	//val rsOptical = new LassoRegression(optical.ox,optical.y)
-	//rsOptical.train().eval()
-	//println("Optical:")
-	//println(rsOptical.report)
-
-
-	ForwardSelection(WineQuality.x,
-                 WineQuality.y)
-
+  ForwardSelection(WineQuality.x,WineQuality.y) //Working
+  ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //Working
+  ForwardSelection(EnergyEff.x,EnergyEff.y) //Working
+  ForwardSelection(ForestFires.x,ForestFires.y) //Check this again
+  ForwardSelection(ElectricalGrid.x,ElectricalGrid.y) //Working
+  ForwardSelection(ComputerHardware.x.selectCols(Array(29,30,31,32,33,34,35)),ComputerHardware.y) //Working
+  ForwardSelection(BikeSharing.x,BikeSharing.y) //Check this again
+  ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y) //Working
+  ForwardSelection(optical.x,optical.y) //Working
+  ForwardSelection(ConcreteData.x,ConcreteData.y) //Working
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 
@@ -77,12 +43,18 @@ object ResponseSurface extends App
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
-        fcols += x_j
-        cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
-        r2(l) = fit_j(0)
-        r2A(l) = fit_j(7)
-        tcol = tcol + 1
-        if (fit_j(7) < 0) flag = false
+
+        if (fit_j(7) < 0 || fit_j(0)<0) flag = false
+
+        if(flag)
+        {
+          fcols += x_j
+          cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
+          r2(l) = fit_j(0)
+          r2A(l) = fit_j(7)
+          tcol = tcol + 1
+        }
+
       }
     } // for
 
@@ -131,12 +103,6 @@ object ResponseSurface extends App
       val ssr = sst-sse
       val rSq = ssr/sst
       sumR = sumR + rSq
-      /*model.eval(x_te, y_te) // evaluate model on the test dataset
-      val qof = model.fit // get quality of fit (qof) measures
-      println(model.report)
-      if (DEBUG) println(s"crossValidate: qof = $qof")
-      for (q <- qof.range) stats(q).tally(qof(q)) // tally these qof measures
-      */
     } // for
 
 /*
