@@ -14,68 +14,16 @@ import scalation.random._
 import scalation.math.double_exp
 
 object RidgeRegression extends App {
-  /*
-  val rrg = new RidgeRegression(ExampleAutoMPG.x - ExampleAutoMPG.x.mean,
-                                ExampleAutoMPG.y - ExampleAutoMPG.y.mean)
-  rrg.train().eval()
-  println("Auto MPG:")
-  println(rrg.report)
-
-  val rrgBike = new RidgeRegression(BikeSharing.x - BikeSharing.x.mean,
-                                    BikeSharing.y - BikeSharing.y.mean)
-  rrgBike.train().eval()
-  println("Bike:")
-  println(rrgBike.report)
-
-  val rrgComputer = new RidgeRegression(
-    ComputerHardware.x - ComputerHardware.x.mean,
-    ComputerHardware.y - ComputerHardware.y.mean)
-  rrgComputer.train().eval()
-  println("Computer:")
-  println(rrgComputer.report)
-
-  val rrgElectricGrid = new RidgeRegression(
-    ElectricalGrid.x - ElectricalGrid.x.mean,
-    ElectricalGrid.y - ElectricalGrid.y.mean)
-  rrgElectricGrid.train().eval()
-  println("Electrical Grid:")
-  println(rrgElectricGrid.report)
-
-  val rrgEnergyEff = new RidgeRegression(EnergyEff.x - EnergyEff.x.mean,
-                                         EnergyEff.y - EnergyEff.y.mean)
-  rrgEnergyEff.train().eval()
-  println("Energy Eff:")
-  println(rrgEnergyEff.report)
-
-  val rrgForestFires = new RidgeRegression(ForestFires.x - ForestFires.x.mean,
-                                           ForestFires.y - ForestFires.y.mean)
-  rrgForestFires.train().eval()
-  println("ForestFires:")
-  println(rrgForestFires.report)
-
-  val rrgOptical =
-    new RidgeRegression(optical.x - optical.x.mean, optical.y - optical.y.mean)
-  rrgOptical.train().eval()
-  println("Optical:")
-  println(rrgOptical.report)
-
-  val rrgProteinTertiary = new RidgeRegression(
-    ProteinTertiary.x - ProteinTertiary.x.mean,
-    ProteinTertiary.y - ProteinTertiary.y.mean)
-  rrgProteinTertiary.train().eval()
-  println("ProteinTertiary:")
-  println(rrgProteinTertiary.report)
-
-  val rrgWineQuality = new RidgeRegression(WineQuality.x,
-                                           WineQuality.y)
-  rrgWineQuality.train().eval()
-  println("WineQuality:")
-  println(rrgWineQuality.report)
-*/
-
-  ForwardSelection(WineQuality.x-WineQuality.x.mean,
-                 WineQuality.y-WineQuality.y.mean)
-
+	ForwardSelection(WineQuality.x - WineQuality.x.mean, WineQuality.y - WineQuality.y.mean) //
+	ForwardSelection(ProteinTertiary.x - ProteinTertiary.x.mean, ProteinTertiary.y - ProteinTertiary.y.mean) //Working
+	ForwardSelection(EnergyEff.x - EnergyEff.x.mean, EnergyEff.y - EnergyEff.y.mean) //Working
+	ForwardSelection(ForestFires.x - ForestFires.x.mean, ForestFires.y - ForestFires.y.mean) //Check this again
+	ForwardSelection(ElectricalGrid.x - ElectricalGrid.x.mean, ElectricalGrid.y - ElectricalGrid.y.mean) //Working
+	ForwardSelection(ComputerHardware.x - ComputerHardware.x.mean, ComputerHardware.y - ComputerHardware.y.mean) //Working
+	ForwardSelection(BikeSharing.x - BikeSharing.x.mean, BikeSharing.y - BikeSharing.y.mean) //Check this again
+	ForwardSelection(ExampleAutoMPG.x - ExampleAutoMPG.x.mean, ExampleAutoMPG.y - ExampleAutoMPG.y.mean) //Working
+	ForwardSelection(optical.x - optical.x.mean, optical.y - optical.y.mean) //Working
+	ForwardSelection(ConcreteData.x - ConcreteData.x.mean, ConcreteData.y - ConcreteData.y.mean) //Working
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 
@@ -94,12 +42,18 @@ object RidgeRegression extends App {
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
-        fcols += x_j
-        cvR(l) = crossVal((x: MatriD, y: VectoD) => new RidgeRegression(x,y), x.selectCols(fcols.toArray), argY)
-        r2(l) = fit_j(0)
-        r2A(l) = fit_j(7)
-        tcol = tcol + 1
-        if (fit_j(7) < 0) flag = false
+
+        if (fit_j(7) < 0 || fit_j(0)<0) flag = false
+
+        if(flag)
+        {
+          fcols += x_j
+          cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
+          r2(l) = fit_j(0)
+          r2A(l) = fit_j(7)
+          tcol = tcol + 1
+        }
+
       }
     } // for
 
@@ -107,10 +61,13 @@ object RidgeRegression extends App {
     println(r2.max())
     println("max r2A is:")
     println(r2A.max())
-    println("n* for adj r2: "+r2A.argmax())
+    println("n* for adj r2: "+(r2A.argmax()+1))
     println("max cv R2 is:")
     println(cvR.max())
-    println("n* for cv r2: " +cvR.argmax())
+    println("n* for cv r2: " +(cvR.argmax()+1))
+    println(r2)
+    println(r2A)
+    println(cvR)
     val t = VectorD.range(0, tcol)
     val all3 = new MatrixD(3,tcol)
     all3.update(0,r2.slice(0, tcol))
@@ -145,12 +102,6 @@ object RidgeRegression extends App {
       val ssr = sst-sse
       val rSq = ssr/sst
       sumR = sumR + rSq
-      /*model.eval(x_te, y_te) // evaluate model on the test dataset
-      val qof = model.fit // get quality of fit (qof) measures
-      println(model.report)
-      if (DEBUG) println(s"crossValidate: qof = $qof")
-      for (q <- qof.range) stats(q).tally(qof(q)) // tally these qof measures
-      */
     } // for
 
 /*

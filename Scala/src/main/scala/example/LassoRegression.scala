@@ -15,61 +15,16 @@ import scalation.math.double_exp
 
 object LassoRegression extends App
 {
-/*
-val lrg = new LassoRegression(VectorD.one (ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x, ExampleAutoMPG.y)
-lrg.train().eval()
-println("Auto MPG:")
-println(lrg.report)
-
-val lrgBike = new LassoRegression(BikeSharing.ox, BikeSharing.y)
-lrgBike.train().eval()
-println("Bike:")
-println(lrgBike.report)
-
-val lrgComputer = new LassoRegression(ComputerHardware.ox,ComputerHardware.y)
-lrgComputer.train().eval()
-println("Computer:")
-println(lrgComputer.report)
-
-
-val lrgElectricGrid = new LassoRegression(ElectricalGrid.ox,ElectricalGrid.y)
-lrgElectricGrid.train().eval()
-println("Electrical Grid:")
-println(lrgElectricGrid.report)
-
-
-val lrgEnergyEff = new LassoRegression(EnergyEff.ox,EnergyEff.y)
-lrgEnergyEff.train().eval()
-println("Energy Eff:")
-println(lrgEnergyEff.report)
-
-
-val lrgForestFires = new LassoRegression(ForestFires.ox,ForestFires.y)
-lrgForestFires.train().eval()
-println("ForestFires:")
-println(lrgForestFires.report)
-
-
-val lrgOptical = new LassoRegression(optical.ox,optical.y)
-lrgOptical.train().eval()
-println("Optical:")
-println(lrgOptical.report)
-
-val lrgProteinTertiary = new LassoRegression(ProteinTertiary.ox,ProteinTertiary.y)
-lrgProteinTertiary.train().eval()
-println("ProteinTertiary:")
-println(lrgProteinTertiary.report)
-
-val lrgWineQuality = new LassoRegression(WineQuality.ox,WineQuality.y)
-lrgWineQuality.train().eval()
-println("WineQuality:")
-println(lrgWineQuality.report)
-*/
-
-
-ForwardSelection(WineQuality.ox,
-                 WineQuality.y)
-
+  ForwardSelection(WineQuality.ox,WineQuality.y) //Working
+  ForwardSelection(ProteinTertiary.ox,ProteinTertiary.y) //Working
+  ForwardSelection(EnergyEff.ox,EnergyEff.y) //Working
+  ForwardSelection(ForestFires.ox,ForestFires.y) //Check this again
+  ForwardSelection(ElectricalGrid.ox,ElectricalGrid.y) //Working
+  ForwardSelection(ComputerHardware.ox,ComputerHardware.y) //Working
+  ForwardSelection(BikeSharing.ox,BikeSharing.y) //Check this again
+  ForwardSelection(VectorD.one (ExampleAutoMPG.xy.dim1) +^: ExampleAutoMPG.x, ExampleAutoMPG.y) //Working
+  ForwardSelection(optical.ox,optical.y) //Working
+  ForwardSelection(ConcreteData.ox,ConcreteData.y) //Working
 
   def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
 
@@ -88,12 +43,18 @@ ForwardSelection(WineQuality.ox,
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
-        fcols += x_j
-        cvR(l) = crossVal((x: MatriD, y: VectoD) => new LassoRegression(x,y), x.selectCols(fcols.toArray), argY)
-        r2(l) = fit_j(0)
-        r2A(l) = fit_j(7)
-        tcol = tcol + 1
-        if (fit_j(7) < 0) flag = false
+
+        if (fit_j(7) < 0 || fit_j(0)<0) flag = false
+        if(l<3) flag = true
+        if(flag)
+        {
+          fcols += x_j
+          cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
+          r2(l) = fit_j(0)
+          r2A(l) = fit_j(7)
+          tcol = tcol + 1
+        }
+
       }
     } // for
 
@@ -142,12 +103,6 @@ ForwardSelection(WineQuality.ox,
       val ssr = sst-sse
       val rSq = ssr/sst
       sumR = sumR + rSq
-      /*model.eval(x_te, y_te) // evaluate model on the test dataset
-      val qof = model.fit // get quality of fit (qof) measures
-      println(model.report)
-      if (DEBUG) println(s"crossValidate: qof = $qof")
-      for (q <- qof.range) stats(q).tally(qof(q)) // tally these qof measures
-      */
     } // for
 
 /*
@@ -158,6 +113,5 @@ ForwardSelection(WineQuality.ox,
     } // if*/
     sumR/k
   }
-
 
 }
