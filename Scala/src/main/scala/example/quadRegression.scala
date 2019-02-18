@@ -13,7 +13,7 @@ import scalation.random.CDF.studentTCDF
 import scalation.random._
 import scalation.math.double_exp
 
-object quadRegression
+object quadRegression extends App
 {
 
 ForwardSelection(WineQuality.x,WineQuality.y)
