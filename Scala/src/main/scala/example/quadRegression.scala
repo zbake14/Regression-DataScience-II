@@ -13,21 +13,57 @@ import scalation.random.CDF.studentTCDF
 import scalation.random._
 import scalation.math.double_exp
 
-object quadRegression
+object quadRegression extends App
 {
+  println("WineQuality")
+  ForwardSelection(WineQuality.x,WineQuality.y, "WineQuality")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
 
-ForwardSelection(WineQuality.x,WineQuality.y)
-ForwardSelection(ProteinTertiary.x,ProteinTertiary.y) //run time error solved
-ForwardSelection(EnergyEff.x,EnergyEff.y) //runtime error solved
-ForwardSelection(ForestFires.x,ForestFires.y)
-ForwardSelection(ElectricalGrid.x,ElectricalGrid.y)
-ForwardSelection(ComputerHardware.x,ComputerHardware.y) //runtime error solved
-ForwardSelection(BikeSharing.x,BikeSharing.y) //runtime solved
-ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y)
-ForwardSelection(optical.x,optical.y) //runtime solved
-ForwardSelection(ConcreteData.x,ConcreteData.y)
+  println("ProteinTertiary")
+  ForwardSelection(ProteinTertiary.x,ProteinTertiary.y,"ProteinTertiary") //run time error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
 
-  def ForwardSelection(argX: MatrixD, argY: VectorD): Unit = {
+  println("EnergyEff")
+  ForwardSelection(EnergyEff.x,EnergyEff.y,"EnergyEff") //runtime error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ForestFires")
+  ForwardSelection(ForestFires.x,ForestFires.y, "ForestFires")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ElectricalGrid")
+  ForwardSelection(ElectricalGrid.x,ElectricalGrid.y,"ElectricalGrid")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ComputerHardware")
+  ForwardSelection(ComputerHardware.x,ComputerHardware.y,"ComputerHardware") //runtime error solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("BikeSharing")
+  ForwardSelection(BikeSharing.x,BikeSharing.y,"BikeSharing") //runtime solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ExampleAutoMPG")
+  ForwardSelection(ExampleAutoMPG.x,ExampleAutoMPG.y,"ExampleAutoMPG")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("Optical")
+  ForwardSelection(optical.x,optical.y,"Optical") //runtime solved
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
+  println("ConcreteData")
+  ForwardSelection(ConcreteData.x,ConcreteData.y,"ConcreteData")
+
+  def ForwardSelection(argX: MatrixD, argY: VectorD, datasetName:String): Unit = {
 
     val rrg = new QuadRegression(argX, argY)
     rrg.train().eval()
@@ -67,9 +103,9 @@ ForwardSelection(ConcreteData.x,ConcreteData.y)
     println("max cv R2 is:")
     println(cvR.max())
     println("n* for cv r2: " +(cvR.argmax()+1))
-    println(r2)
-    println(r2A)
-    println(cvR)
+    // println(r2)
+    // println(r2A)
+    // println(cvR)
     val t = VectorD.range(0, tcol)
     val all3 = new MatrixD(3,tcol)
     all3.update(0,r2.slice(0, tcol))
@@ -78,7 +114,7 @@ ForwardSelection(ConcreteData.x,ConcreteData.y)
     new PlotM(t,
              all3,
              Array("R2","R2 Adj", "CV R2"),
-             "R square vs R bar square", true)
+             datasetName+" R square vs R bar square", true)
   }
 
   def crossVal(algor: (MatriD, VectoD) => PredictorMat,
