@@ -118,7 +118,7 @@ object ResponseSurface extends App
     all3.update(1,r2A.slice(0, tcol))
     all3.update(2,cvR.slice(0, tcol))
     new PlotM(t,
-             all3,
+             all3*100,
              Array("R2","R2 Adj", "CV R2"),
              datasetName+" R square vs R bar square", true)
   }
