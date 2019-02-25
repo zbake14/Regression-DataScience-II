@@ -15,6 +15,10 @@ import scalation.math.double_exp
 
 object RidgeRegression extends App {
 
+  //Calling ForwardSelection method for each dataset.
+  //ForwardSelection method takes Matrix X (data) and Vector Y (variable)
+  //ForwardSelection applies forward selection and crossvalidation along with the plots
+
   println("WineQuality")
 	ForwardSelection(WineQuality.x - WineQuality.x.mean, WineQuality.y - WineQuality.y.mean,"WineQuality") //
 	println("_____________________________________________________")
@@ -50,6 +54,7 @@ object RidgeRegression extends App {
 	println("_____________________________________________________")
   println("_____________________________________________________")
 
+  //ExampleAutoMPG did not have a defintion of ox. Hence added one column manually.
   println("ExampleAutoMPG")
 	ForwardSelection(ExampleAutoMPG.x - ExampleAutoMPG.x.mean, ExampleAutoMPG.y - ExampleAutoMPG.y.mean,"ExampleAutoMPG") //Working
 	println("_____________________________________________________")
@@ -67,26 +72,37 @@ object RidgeRegression extends App {
 
   def ForwardSelection(argX: MatrixD, argY: VectorD, datasetName:String): Unit = {
 
+    //Create object of Regression and train and evaluate the model.
+
     val rrg = new RidgeRegression(argX, argY)
     rrg.train().eval()
     val x = argX
     val y = argY
+
+    //Initialize variables for performance evaluation.
 
     var fcols = Set[Int]() // start with no variable
     var r2 = new VectorD(x.dim2)
     var r2A = new VectorD(x.dim2)
     var cvR = new VectorD(x.dim2)
     var flag = true
-    var tcol = 0
+    var tcol = 0 //length of fcols. Essentially the number of columns we end up using.
+
+    //add a column iteratively
+
 
     for (l <- 0 until x.dim2) {
       if (flag) {
         val (x_j, b_j, fit_j) = rrg.forwardSel(fcols) // add most predictive variable
 
+        //break the loop if indices are negative to avoid run time errors.
+
         if (fit_j(7) < 0 || fit_j(0)<0) flag = false
 
         if(flag)
         {
+          //Call cross validation method with new fcols and get R-square and adjusted R square values.
+
           fcols += x_j
           cvR(l) = crossVal((x: MatriD, y: VectoD) => new Regression(x,y), new MatrixD(x.selectCols(fcols.toArray)), argY)
           r2(l) = fit_j(0)
@@ -97,6 +113,7 @@ object RidgeRegression extends App {
       }
     } // for
 
+//Print the results.
     println("max r2 is:")
     println(r2.max())
     println("max r2A is:")
@@ -105,20 +122,21 @@ object RidgeRegression extends App {
     println("max cv R2 is:")
     println(cvR.max())
     println("n* for cv r2: " +(cvR.argmax()+1))
-    // println(r2)
-    // println(r2A)
-    // println(cvR)
+
     val t = VectorD.range(0, tcol)
-    val all3 = new MatrixD(3,tcol)
+    val all3 = new MatrixD(3,tcol) //Get all evaluation metrics into single matrix.
     all3.update(0,r2.slice(0, tcol))
     all3.update(1,r2A.slice(0, tcol))
     all3.update(2,cvR.slice(0, tcol))
+
+  //Plot the graphs.
     new PlotM(t,
              all3*100,
              Array("R2","R2 Adj", "CV R2"),
              datasetName+" R square vs R bar square", true)
   }
 
+//Cross validation method
   def crossVal(algor: (MatriD, VectoD) => PredictorMat,
                argX: MatrixD, argY: VectorD, k: Int = 10): Double = {
     //val DEBUG = false
@@ -136,6 +154,7 @@ object RidgeRegression extends App {
       val model = algor(x_tr, y_tr) // construct next model using training dataset
       model.train() // train model on the training dataset
 
+  //calculate errors, sse, sst and rsquare.
       val e = y_te - x_te*model.parameter
       val sse = e dot e
       val sst = (y_te dot y_te) - y_te.sum~^2 / y_te.dim
