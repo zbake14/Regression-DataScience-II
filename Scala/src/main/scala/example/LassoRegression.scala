@@ -35,10 +35,6 @@ object LassoRegression extends App
   println("_____________________________________________________")
   println("_____________________________________________________")
 
-  println("ForestFires")
-  ForwardSelection(ForestFires.ox,ForestFires.y, "ForestFires")
-  println("_____________________________________________________")
-  println("_____________________________________________________")
 
   println("ElectricalGrid")
   ForwardSelection(ElectricalGrid.ox,ElectricalGrid.y,"ElectricalGrid")
@@ -68,6 +64,13 @@ object LassoRegression extends App
 
   println("ConcreteData")
   ForwardSelection(ConcreteData.ox,ConcreteData.y,"ConcreteData")
+
+
+  println("ForestFires")
+  ForwardSelection(ForestFires.ox,ForestFires.y, "ForestFires")
+  println("_____________________________________________________")
+  println("_____________________________________________________")
+
 
   def ForwardSelection(argX: MatrixD, argY: VectorD, datasetName:String): Unit = {
 
@@ -106,17 +109,15 @@ object LassoRegression extends App
     } // for
 
 //Print the results.
-    println("max r2 is:")
-    println(r2.max())
-    println("max r2A is:")
-    println(r2A.max())
-    println("n* for adj r2: "+(r2A.argmax()+1))
-    println("max cv R2 is:")
-    println(cvR.max())
-    println("n* for cv r2: " +(cvR.argmax()+1))
-    println(r2)
-    println(r2A)
-    println(cvR)
+println("max r2 is:")
+println(r2.slice(0,tcol).max())
+println("max r2A is:")
+println(r2A.slice(0,tcol).max())
+println("n* for adj r2: "+(r2A.argmax()+1))
+println("max cv R2 is:")
+println(cvR.slice(0,tcol).max())
+println("n* for cv r2: " +(cvR.slice(0,tcol).argmax()+1))
+
     val t = VectorD.range(0, tcol)
     val all3 = new MatrixD(3,tcol)  //Get all evaluation metrics into single matrix.
     all3.update(0,r2.slice(0, tcol))
