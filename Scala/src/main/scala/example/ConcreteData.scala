@@ -12,8 +12,7 @@ object ConcreteData
 {
     /** the names of the predictor variables and the response variable at the end
      */
-    // val fname = Array ("LP","v","GTT","GTn","GGN","Ts","Tp","HP","T1","T2",
-    //                     "P48","P1","P2","Pexh","TIC","mf","GTCdec")
+    val fname = Array ("Cement","Blast","FlyAsh","Water","Superplasticizer","CoarseAgg","FineAgg","Age","CCS")
 
     /** the combined data matrix 'xy'
      */
@@ -42,7 +41,7 @@ object ConcreteData
     val oxy = VectorD.one (xy.dim1) +^: xy
     val ox = VectorD.one (xy.dim1) +^: x
 
-  
+
     //
     // val qrgCon= new Regression(Concrete_Data.ox,Concrete_Data.y)
     // qrgCon.train().eval()
