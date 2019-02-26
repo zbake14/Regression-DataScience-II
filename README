@@ -81,9 +81,9 @@ running through (n+2)*(n+1)/2 columns.
 
 In order to run the R code:
 1. Open the MainRegression.R file
-2. Change line 1 to whatever full pathname you have the Project1/R 
+2. Change line 4 to whatever full pathname you have the Project1/R 
 	folder in
-3. Ensure that you have all the packages seen in lines 2-7
+3. Ensure that you have all the packages seen in lines 7-12
 4. Run the code in its entirety.
 
 The code will take approximately 5 minutes to run with just Linear
